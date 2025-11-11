@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 public class BuscaCep {
     Scanner scan = new Scanner (System.in);
-    private int numeroCep;
+    private int numeroCep = -1;
     private String url;
     List<Endereco> cep = new ArrayList<>();
 
@@ -28,7 +28,7 @@ public class BuscaCep {
                 .setPrettyPrinting()
                 .create();
 
-        while(numeroCep == 0){
+        while(numeroCep != 0){
             System.out.println("informe o cep que deseja consultar: ");
             this.numeroCep = scan.nextInt();
             if (numeroCep == 0){
@@ -51,13 +51,13 @@ public class BuscaCep {
             Endereco endereco = new Endereco(meuCepViaCep);
             cep.add(endereco);
 
-            FileWriter salveArquivo = new FileWriter("enderecos.json");
-            salveArquivo.write(gson.toJson(cep));
-            salveArquivo.close();
-
-            System.out.println("encerrando com sucesso");
 
         }
+        FileWriter salveArquivo = new FileWriter("enderecos.json");
+        salveArquivo.write(gson.toJson(cep));
+        salveArquivo.close();
+
+        System.out.println("encerrando com sucesso");
 
     }
 
