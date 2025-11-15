@@ -59,6 +59,7 @@ public class BuscaCep {
 
         System.out.println("encerrando com sucesso");
 
+
     }
 
 //    public void buscaCep() throws IOException, InterruptedException {
